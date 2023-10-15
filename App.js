@@ -1,14 +1,44 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StatusBar } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import Navegatorbar from './src/component/Navegatorbar';
+import Pokemonbox from './src/component/Pokemonbox';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>bulbasur</Text>
-      <Image style={{width:200 , height:200 }} 
-      source={{uri: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png'}}/>
-      <StatusBar style="auto" />
+    <View style={styles.container} className = "App">
+      <StatusBar style= 'solid'/>
+      <Navegatorbar />
+      <View style={styles.row}>
+        <Pokemonbox />
+        <Pokemonbox />
+        <Pokemonbox />
+        <Pokemonbox />
+      </View>
+      <View style={styles.row}>
+        <Pokemonbox />
+        <Pokemonbox />
+        <Pokemonbox />
+        <Pokemonbox />
+      </View>
+      <View style={styles.row}>
+        <Pokemonbox />
+        <Pokemonbox />
+        <Pokemonbox />
+        <Pokemonbox />
+      </View>
+      <View style={styles.row}>
+        <Pokemonbox />
+        <Pokemonbox />
+        <Pokemonbox />
+        <Pokemonbox />
+      </View>
+      <View style={styles.row}>
+        <Pokemonbox />
+        <Pokemonbox />
+        <Pokemonbox />
+        <Pokemonbox />
+      </View>
     </View>
   );
 }
@@ -16,8 +46,10 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#D9D9D9',
   },
+  row: {
+    flexDirection: 'row', 
+    marginTop: 20
+  }
 });
