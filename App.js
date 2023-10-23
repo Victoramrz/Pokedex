@@ -1,55 +1,20 @@
 import React from 'react';
-import { StatusBar } from 'react-native';
-import { StyleSheet, View } from 'react-native';
-import Navegatorbar from './src/component/Navegatorbar';
-import Pokemonbox from './src/component/Pokemonbox';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+import Aboutpokemon from './src/component/Aboutpokemon';
+import Listpokemon from './src/component/Listpokemon';
+
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container} className = "App">
-      <StatusBar style= 'solid'/>
-      <Navegatorbar />
-      <View style={styles.row}>
-        <Pokemonbox />
-        <Pokemonbox />
-        <Pokemonbox />
-        <Pokemonbox />
-      </View>
-      <View style={styles.row}>
-        <Pokemonbox />
-        <Pokemonbox />
-        <Pokemonbox />
-        <Pokemonbox />
-      </View>
-      <View style={styles.row}>
-        <Pokemonbox />
-        <Pokemonbox />
-        <Pokemonbox />
-        <Pokemonbox />
-      </View>
-      <View style={styles.row}>
-        <Pokemonbox />
-        <Pokemonbox />
-        <Pokemonbox />
-        <Pokemonbox />
-      </View>
-      <View style={styles.row}>
-        <Pokemonbox />
-        <Pokemonbox />
-        <Pokemonbox />
-        <Pokemonbox />
-      </View>
-    </View>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Listpokemon">
+          <Stack.Screen name='Listpokemon' component={Listpokemon} options={{ headerShown: false }}/>
+          <Stack.Screen name="Aboutpokemon" component={Aboutpokemon} options={{ headerShown: false }}/>
+        </Stack.Navigator>
+      </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#D9D9D9',
-  },
-  row: {
-    flexDirection: 'row', 
-    marginTop: 20
-  }
-});
